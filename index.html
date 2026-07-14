@@ -31,20 +31,16 @@
   h1,h2,h3{font-family:'Bebas Neue',sans-serif; letter-spacing:0.03em; margin:0;}
   .display{font-family:'Bebas Neue',sans-serif;}
 
-  /* HEADER */
   header{padding:26px 20px 18px; position:relative;}
   .eyebrow{font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass); font-weight:700;}
   header h1{font-size:52px; line-height:0.95; margin-top:4px;}
   header p{color:var(--chalk-dim); font-size:13.5px; margin-top:6px; max-width:340px; line-height:1.4;}
 
-  /* PLATE LOADER - weekly progress signature element */
   .bar-rack{display:flex; align-items:center; gap:3px; margin-top:18px; padding:14px 14px; background:var(--panel); border-radius:14px; border:1px solid var(--line);}
-  .bar-sleeve{flex:1; height:8px; background:#0e0d0c; border-radius:4px; position:relative; margin:0 6px;}
   .plate{width:26px; height:26px; border-radius:50%; border:3px solid var(--brass-dim); background:radial-gradient(circle at 35% 30%, #3a3226, #17140f); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:800; color:var(--chalk-dim); flex-shrink:0; transition:all .35s ease;}
   .plate.done{border-color:var(--brass); background:radial-gradient(circle at 35% 30%, #e8c85a, #c9a227); color:#161513; box-shadow:0 0 12px rgba(201,162,39,0.5);}
   .rack-label{font-size:10px; text-transform:uppercase; letter-spacing:0.14em; color:var(--chalk-dim); margin-top:8px; text-align:center;}
 
-  /* TABS CONTENT */
   main{padding:6px 20px 20px;}
   .section-title{display:flex; align-items:baseline; justify-content:space-between; margin:22px 0 12px;}
   .section-title h2{font-size:26px;}
@@ -56,16 +52,26 @@
   .today-card h3{font-size:30px; margin-top:2px;}
   .today-sub{color:var(--chalk-dim); font-size:13px; margin-top:2px;}
 
-  .ex-row{display:flex; align-items:center; gap:12px; padding:12px 2px; border-bottom:1px solid var(--line);}
+  .today-header{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+  .complete-toggle{display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; flex-shrink:0; padding-top:2px;}
+  .complete-box{width:28px; height:28px; border-radius:9px; border:2px solid var(--chalk-dim); display:flex; align-items:center; justify-content:center; transition:all .15s ease;}
+  .complete-box.on{background:var(--good); border-color:var(--good); box-shadow:0 0 10px rgba(122,155,118,0.45);}
+  .complete-box.on:after{content:"✓"; color:#161513; font-weight:800; font-size:15px;}
+  .complete-label{font-size:9px; text-transform:uppercase; letter-spacing:0.08em; color:var(--chalk-dim); font-weight:700; white-space:nowrap;}
+  .complete-label.on{color:var(--good);}
+
+  .ex-row{padding:14px 2px; border-bottom:1px solid var(--line);}
   .ex-row:last-child{border-bottom:none;}
-  .check{width:24px; height:24px; border-radius:7px; border:2px solid var(--chalk-dim); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .15s ease;}
-  .check.on{background:var(--brass); border-color:var(--brass);}
-  .check.on:after{content:"✓"; color:#161513; font-weight:800; font-size:14px;}
-  .ex-info{flex:1;}
+  .ex-top{display:flex; align-items:center; justify-content:space-between; gap:10px;}
   .ex-name{font-size:15px; font-weight:600;}
   .ex-name.struck{text-decoration:line-through; color:var(--chalk-dim);}
   .ex-meta{font-size:12.5px; color:var(--chalk-dim); margin-top:1px;}
   .warmup{font-size:12px; color:var(--brass); font-weight:600; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.08em;}
+
+  .set-row{display:flex; gap:7px; margin-top:10px; flex-wrap:wrap;}
+  .set-box{width:34px; height:34px; border-radius:9px; border:2px solid var(--chalk-dim); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:var(--chalk-dim); flex-shrink:0; cursor:pointer; transition:all .12s ease;}
+  .set-box.on{background:var(--brass); border-color:var(--brass); color:#161513; box-shadow:0 0 8px rgba(201,162,39,0.35);}
+  .set-box.on:after{content:"✓";}
 
   .week-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:8px;}
   .day-pill{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px 3px; text-align:center; cursor:pointer;}
@@ -92,16 +98,18 @@
   .supp-row span:last-child{color:var(--chalk-dim); font-size:12.5px;}
 
   .shop-group h3{font-size:13px; text-transform:uppercase; letter-spacing:0.12em; color:var(--brass); margin:18px 0 8px;}
-  .shop-item{display:flex; align-items:center; gap:12px; padding:10px 2px; border-bottom:1px solid var(--line); font-size:14.5px;}
+  .shop-item{display:flex; align-items:center; gap:12px; padding:10px 2px; border-bottom:1px solid var(--line); font-size:14.5px; cursor:pointer;}
   .shop-item:last-child{border-bottom:none;}
   .shop-item.struck{color:var(--chalk-dim); text-decoration:line-through;}
-  .store-tag{font-size:11px; color:var(--chalk-dim); margin-top:2px;}
+  .check{width:24px; height:24px; border-radius:7px; border:2px solid var(--chalk-dim); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .15s ease; cursor:pointer;}
+  .check.on{background:var(--brass); border-color:var(--brass);}
+  .check.on:after{content:"✓"; color:#161513; font-weight:800; font-size:14px;}
+  .check.green.on{background:var(--good); border-color:var(--good); box-shadow:0 0 8px rgba(122,155,118,0.4);}
 
-  .progress-check{display:flex; align-items:center; gap:12px; padding:12px 2px; border-bottom:1px solid var(--line); font-size:14.5px;}
+  .progress-check{display:flex; align-items:center; gap:12px; padding:12px 2px; border-bottom:1px solid var(--line); font-size:14.5px; cursor:pointer;}
   .progress-check:last-child{border-bottom:none;}
   .rule-note{font-size:13px; color:var(--chalk-dim); line-height:1.5; margin-top:10px;}
 
-  /* NAV */
   nav{position:fixed; bottom:0; left:0; right:0; max-width:520px; margin:0 auto; background:rgba(22,21,19,0.92); backdrop-filter:blur(14px); border-top:1px solid var(--line); display:flex; padding:8px 6px calc(8px + env(safe-area-inset-bottom)); z-index:10;}
   .nav-btn{flex:1; background:none; border:none; color:var(--chalk-dim); font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; padding:8px 2px 4px; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; letter-spacing:0.02em;}
   .nav-btn svg{width:20px; height:20px; stroke:var(--chalk-dim); fill:none; stroke-width:1.8;}
@@ -111,8 +119,6 @@
   .tab{display:none;}
   .tab.active{display:block; animation:fade .25s ease;}
   @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
-
-  .plate-count{font-size:12px; color:var(--chalk-dim); text-align:center; margin-top:2px;}
 </style>
 </head>
 <body>
@@ -132,9 +138,17 @@
 
   <div class="tab active" id="tab-today">
     <div class="today-card card">
-      <div class="today-tag" id="todayTag">Today</div>
-      <h3 id="todayName">Rest</h3>
-      <div class="today-sub" id="todaySub"></div>
+      <div class="today-header">
+        <div>
+          <div class="today-tag" id="todayTag">Today</div>
+          <h3 id="todayName">Rest</h3>
+          <div class="today-sub" id="todaySub"></div>
+        </div>
+        <div class="complete-toggle" id="todayCompleteToggle">
+          <div class="complete-box" id="todayCompleteBox"></div>
+          <div class="complete-label" id="todayCompleteLabel">Done</div>
+        </div>
+      </div>
     </div>
     <div id="todayList"></div>
   </div>
@@ -142,9 +156,17 @@
   <div class="tab" id="tab-week">
     <div class="section-title"><h2>The Week</h2><span>Tap a day</span></div>
     <div class="week-grid" id="weekGrid"></div>
-    <div class="today-tag" id="weekSelName" style="margin-top:18px;"></div>
-    <h3 id="weekSelTitle" style="font-size:26px; margin-bottom:10px;"></h3>
-    <div id="weekList"></div>
+    <div class="today-header" style="margin-top:18px;">
+      <div>
+        <div class="today-tag" id="weekSelName"></div>
+        <h3 id="weekSelTitle" style="font-size:26px;"></h3>
+      </div>
+      <div class="complete-toggle" id="weekCompleteToggle">
+        <div class="complete-box" id="weekCompleteBox"></div>
+        <div class="complete-label" id="weekCompleteLabel">Done</div>
+      </div>
+    </div>
+    <div id="weekList" style="margin-top:10px;"></div>
   </div>
 
   <div class="tab" id="tab-fuel">
@@ -225,52 +247,53 @@
 </nav>
 
 <script>
+/* each exercise: n = name, m = meta text shown, sets = number of tappable set boxes */
 const DAYS = [
   { key:"sun", dow:"Sun", name:"Rest", tag:"Rest", sub:"Recovery day. Sleep, protein, stay mobile.", warmup:null, exercises:[] },
   { key:"mon", dow:"Mon", name:"Push + Core", tag:"Push", sub:"Chest, shoulders, triceps, core", warmup:"5 min treadmill warm-up", exercises:[
-    {n:"DB Bench Press", m:"3x10 · 20 lb each hand"},
-    {n:"Incline DB Press", m:"3x10 · 15-20 lb"},
-    {n:"DB Shoulder Press", m:"3x10 · 15 lb"},
-    {n:"Cable Lateral Raise", m:"3x15"},
-    {n:"Rope Triceps Pushdown", m:"3x12"},
-    {n:"Dead Bugs", m:"3x12"},
-    {n:"Front Plank", m:"3x30 sec"},
+    {n:"DB Bench Press", m:"3x10 · 20 lb each hand", sets:3},
+    {n:"Incline DB Press", m:"3x10 · 15-20 lb", sets:3},
+    {n:"DB Shoulder Press", m:"3x10 · 15 lb", sets:3},
+    {n:"Cable Lateral Raise", m:"3x15", sets:3},
+    {n:"Rope Triceps Pushdown", m:"3x12", sets:3},
+    {n:"Dead Bugs", m:"3x12", sets:3},
+    {n:"Front Plank", m:"3x30 sec", sets:3},
   ]},
   { key:"tue", dow:"Tue", name:"Glutes", tag:"Glutes", sub:"Squat, hinge, burn out the abductors", warmup:null, exercises:[
-    {n:"Goblet Squat", m:"3x10 · 35-45 lb"},
-    {n:"Romanian Deadlift", m:"3x10 · 50-70 lb total"},
-    {n:"Walking Lunges", m:"2 rounds · bodyweight or 15 lb DBs"},
-    {n:"Cable Kickbacks", m:"3x15"},
-    {n:"Abductor Machine", m:"3x20"},
-    {n:"Incline Walk", m:"10 min"},
+    {n:"Goblet Squat", m:"3x10 · 35-45 lb", sets:3},
+    {n:"Romanian Deadlift", m:"3x10 · 50-70 lb total", sets:3},
+    {n:"Walking Lunges", m:"2 rounds · bodyweight or 15 lb DBs", sets:2},
+    {n:"Cable Kickbacks", m:"3x15", sets:3},
+    {n:"Abductor Machine", m:"3x20", sets:3},
+    {n:"Incline Walk", m:"10 min", sets:1},
   ]},
   { key:"wed", dow:"Wed", name:"Walk + Stretch", tag:"Active Recovery", sub:"Outdoor walk, keep it easy", warmup:null, exercises:[
-    {n:"Outdoor Walk", m:"30 min"},
-    {n:"Full Body Stretch", m:"10 min"},
+    {n:"Outdoor Walk", m:"30 min", sets:1},
+    {n:"Full Body Stretch", m:"10 min", sets:1},
   ]},
   { key:"thu", dow:"Thu", name:"Pull + Arms", tag:"Pull", sub:"Back, biceps, grip, core finisher", warmup:null, exercises:[
-    {n:"Lat Pulldown", m:"3x10"},
-    {n:"Seated Cable Row", m:"3x10"},
-    {n:"Single Arm Row", m:"3x10 · 25-35 lb"},
-    {n:"Face Pulls", m:"3x15"},
-    {n:"Hammer Curl", m:"3x12 · 15-20 lb"},
-    {n:"EZ Bar Curl", m:"3x10"},
-    {n:"Hanging Knee Raises", m:"3 sets"},
+    {n:"Lat Pulldown", m:"3x10", sets:3},
+    {n:"Seated Cable Row", m:"3x10", sets:3},
+    {n:"Single Arm Row", m:"3x10 · 25-35 lb", sets:3},
+    {n:"Face Pulls", m:"3x15", sets:3},
+    {n:"Hammer Curl", m:"3x12 · 15-20 lb", sets:3},
+    {n:"EZ Bar Curl", m:"3x10", sets:3},
+    {n:"Hanging Knee Raises", m:"3 sets", sets:3},
   ]},
   { key:"fri", dow:"Fri", name:"Conditioning Circuit", tag:"Full Body", sub:"3 rounds, rest between, repeat", warmup:null, exercises:[
-    {n:"DB Thrusters", m:"x10"},
-    {n:"KB Swings", m:"x15"},
-    {n:"Pushups", m:"x10"},
-    {n:"Row", m:"250m"},
-    {n:"Battle Rope", m:"30 sec"},
+    {n:"DB Thrusters", m:"x10 · 3 rounds", sets:3},
+    {n:"KB Swings", m:"x15 · 3 rounds", sets:3},
+    {n:"Pushups", m:"x10 · 3 rounds", sets:3},
+    {n:"Row", m:"250m · 3 rounds", sets:3},
+    {n:"Battle Rope", m:"30 sec · 3 rounds", sets:3},
   ]},
   { key:"sat", dow:"Sat", name:"Glutes + Core", tag:"Glutes", sub:"Second glute day, finish with core", warmup:null, exercises:[
-    {n:"Reverse Lunges", m:"3x10"},
-    {n:"Romanian Deadlift", m:"3x10"},
-    {n:"Cable Pull Through", m:"3x12"},
-    {n:"Step Ups", m:"3x10"},
-    {n:"Abductor Burnout", m:""},
-    {n:"Plank, Bird Dog, Dead Bug", m:"core circuit"},
+    {n:"Reverse Lunges", m:"3x10", sets:3},
+    {n:"Romanian Deadlift", m:"3x10", sets:3},
+    {n:"Cable Pull Through", m:"3x12", sets:3},
+    {n:"Step Ups", m:"3x10", sets:3},
+    {n:"Abductor Burnout", m:"", sets:1},
+    {n:"Plank, Bird Dog, Dead Bug", m:"core circuit", sets:1},
   ]},
 ];
 
@@ -287,37 +310,70 @@ let store = {};
 let currentTab = "today";
 let weekSelKey = null;
 
-async function loadStore(){
+function loadStore(){
   try{
     const raw = localStorage.getItem('san30-state');
     store = raw ? JSON.parse(raw) : {};
   }catch(e){ store = {}; }
 }
-async function saveStore(){
+function saveStore(){
   try{ localStorage.setItem('san30-state', JSON.stringify(store)); }catch(e){}
 }
 
 function todayKey(){
-  const idx = new Date().getDay(); // 0 sun ... 6 sat
+  const idx = new Date().getDay();
   return DAYS[idx].key;
 }
 function dateStamp(){
-  const d = new Date();
-  return d.toISOString().slice(0,10);
+  return new Date().toISOString().slice(0,10);
 }
-function exState(dayKey, i){
-  const k = dateStamp() + ":" + dayKey + ":" + i;
-  return !!store[k];
+function setKey(dayKey, exIdx, setIdx){
+  return dateStamp() + ":" + dayKey + ":" + exIdx + ":" + setIdx;
 }
-function toggleEx(dayKey, i){
-  const k = dateStamp() + ":" + dayKey + ":" + i;
+function setState(dayKey, exIdx, setIdx){
+  return !!store[setKey(dayKey, exIdx, setIdx)];
+}
+function toggleSet(dayKey, exIdx, setIdx){
+  const k = setKey(dayKey, exIdx, setIdx);
+  store[k] = !store[k];
+  saveStore();
+}
+function exCompleteKey(dayKey, exIdx){
+  return 'excomplete:' + dateStamp() + ':' + dayKey + ':' + exIdx;
+}
+function isExManuallyComplete(dayKey, exIdx){
+  return !!store[exCompleteKey(dayKey, exIdx)];
+}
+function toggleExComplete(dayKey, exIdx){
+  const k = exCompleteKey(dayKey, exIdx);
+  store[k] = !store[k];
+  saveStore();
+}
+function exerciseDone(day, dayKey, exIdx){
+  if(isExManuallyComplete(dayKey, exIdx)) return true;
+  const ex = day.exercises[exIdx];
+  if(!ex.sets) return false;
+  for(let s=0; s<ex.sets; s++){
+    if(!setState(dayKey, exIdx, s)) return false;
+  }
+  return true;
+}
+function completeKey(dayKey){
+  return 'complete:' + dateStamp() + ':' + dayKey;
+}
+function isMarkedComplete(dayKey){
+  return !!store[completeKey(dayKey)];
+}
+function toggleComplete(dayKey){
+  const k = completeKey(dayKey);
   store[k] = !store[k];
   saveStore();
 }
 function dayCompletion(dayKey){
   const day = DAYS.find(d=>d.key===dayKey);
+  if(isMarkedComplete(dayKey)) return true;
   if(!day.exercises.length) return false;
-  return day.exercises.every((_,i)=>exState(dayKey,i));
+  return day.exercises.every((_,i)=>exerciseDone(day, dayKey, i));
 }
 
 function renderPlates(){
@@ -346,6 +402,16 @@ function renderToday(){
   document.getElementById('todayTag').textContent = day.tag;
   document.getElementById('todayName').textContent = day.name;
   document.getElementById('todaySub').textContent = day.sub;
+  const on = isMarkedComplete(key);
+  document.getElementById('todayCompleteBox').className = 'complete-box' + (on?' on':'');
+  document.getElementById('todayCompleteLabel').className = 'complete-label' + (on?' on':'');
+  document.getElementById('todayCompleteLabel').textContent = on ? 'Done' : 'Mark done';
+  document.getElementById('todayCompleteToggle').onclick = ()=>{
+    toggleComplete(key);
+    renderToday();
+    renderWeek();
+    renderPlates();
+  };
   renderExList('todayList', day, key);
 }
 
@@ -367,18 +433,35 @@ function renderExList(containerId, day, dayKey){
   day.exercises.forEach((ex,i)=>{
     const row = document.createElement('div');
     row.className = 'ex-row';
-    const on = exState(dayKey, i);
+    const done = exerciseDone(day, dayKey, i);
+    let setsHtml = '';
+    for(let s=0; s<ex.sets; s++){
+      const on = setState(dayKey, i, s);
+      setsHtml += `<div class="set-box ${on?'on':''}" data-set="${s}">${on?'':(s+1)}</div>`;
+    }
     row.innerHTML = `
-      <div class="check ${on?'on':''}"></div>
-      <div class="ex-info">
-        <div class="ex-name ${on?'struck':''}">${ex.n}</div>
-        ${ex.m ? `<div class="ex-meta">${ex.m}</div>` : ''}
-      </div>`;
-    row.addEventListener('click', ()=>{
-      toggleEx(dayKey, i);
+      <div class="ex-top">
+        <div>
+          <div class="ex-name ${done?'struck':''}">${ex.n}</div>
+          ${ex.m ? `<div class="ex-meta">${ex.m}</div>` : ''}
+        </div>
+        <div class="check green ${done?'on':''}" data-role="exdone"></div>
+      </div>
+      <div class="set-row">${setsHtml}</div>`;
+    row.querySelector('[data-role="exdone"]').addEventListener('click', ()=>{
+      toggleExComplete(dayKey, i);
       renderToday();
       renderWeek();
       renderPlates();
+    });
+    row.querySelectorAll('.set-box').forEach(box=>{
+      box.addEventListener('click', ()=>{
+        const s = parseInt(box.dataset.set,10);
+        toggleSet(dayKey, i, s);
+        renderToday();
+        renderWeek();
+        renderPlates();
+      });
     });
     card.appendChild(row);
   });
@@ -388,9 +471,6 @@ function renderExList(containerId, day, dayKey){
 function renderWeek(){
   const grid = document.getElementById('weekGrid');
   grid.innerHTML = '';
-  DAYS.filter(d=>d.key!=='sun').concat(DAYS.filter(d=>d.key==='sun')).forEach(day=>{
-    // keep mon-sun order as defined originally instead:
-  });
   const order = ["mon","tue","wed","thu","fri","sat","sun"];
   if(!weekSelKey) weekSelKey = todayKey();
   order.forEach(k=>{
@@ -405,13 +485,23 @@ function renderWeek(){
   const sel = DAYS.find(d=>d.key===weekSelKey);
   document.getElementById('weekSelName').textContent = sel.tag;
   document.getElementById('weekSelTitle').textContent = sel.name;
+  const on = isMarkedComplete(weekSelKey);
+  document.getElementById('weekCompleteBox').className = 'complete-box' + (on?' on':'');
+  document.getElementById('weekCompleteLabel').className = 'complete-label' + (on?' on':'');
+  document.getElementById('weekCompleteLabel').textContent = on ? 'Done' : 'Mark done';
+  document.getElementById('weekCompleteToggle').onclick = ()=>{
+    toggleComplete(weekSelKey);
+    renderToday();
+    renderWeek();
+    renderPlates();
+  };
   renderExList('weekList', sel, weekSelKey);
 }
 
 function renderWater(){
   const wrap = document.getElementById('waterWrap');
   wrap.innerHTML = '';
-  const total = 10; // 10 oz per drop x 10 = 100oz
+  const total = 10;
   for(let i=0;i<total;i++){
     const k = 'water:' + dateStamp() + ':' + i;
     const on = !!store[k];
@@ -491,8 +581,8 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>switchTab(btn.dataset.tab));
 });
 
-async function init(){
-  await loadStore();
+function init(){
+  loadStore();
   renderPlates();
   renderToday();
   renderWeek();
